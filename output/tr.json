@@ -40,7 +40,9 @@
     "function": "Fonksiyonlar",
     "ingestion": "Yutulması",
     "metrics": "Metrikler",
-    "slack": "Yardım"
+    "slack": "Yardım",
+    "dashboard": "Gösterge Tablosu",
+    "alerts": "Uyarılar"
   },
   "about": {
     "name": "Çinko",
@@ -186,7 +188,7 @@
   },
   "jstransform": {
     "header": "Fonksiyonlar",
-    "add": "İşlev Ekle",
+    "add": "Yeni işlev oluştur",
     "search": "Arama İşlevi",
     "name": "İsim",
     "function": "İşlev Detayı",
@@ -199,7 +201,9 @@
     "cancel": "İptal",
     "addTitle": "İşlev Ekle",
     "updateTitle": "Güncelleme İşlevi",
-    "delete": "Sil"
+    "delete": "Sil",
+    "ok": "Tamam",
+    "type": "İşlev Türü"
   },
   "confirmDialog": {
     "cancel": "İptal",
@@ -208,5 +212,54 @@
   "ingestion": {
     "header": "Yutulması",
     "passwordLabel": "Şifreyi sıfırla"
+  },
+  "dashboard": {
+    "header": "Gösterge Tabloları",
+    "add": "Gösterge Tablosu Ekle",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Gösterge Tablosunu Sil",
+    "search": "Arama Panosu",
+    "name": "Gösterge Tablosunun Adı",
+    "typeDesc": "Gösterge Tablosunun Tip Açıklaması",
+    "createdashboard": "Yeni Bir Gösterge Tablosu Oluşturun",
+    "nameHolder": "Yeni Gösterge Tablosunun Adını Girin",
+    "typeHolder": "Yeni Gösterge Tablosunun Tip Açıklamasını Girin"
+  },
+  "panel": {
+    "header": "Panel",
+    "add": "Panel Ekle",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Paneli Sil",
+    "search": "Arama Paneli",
+    "name": "Panelin Adı",
+    "typeDesc": "Tanım",
+    "createdashboard": "Yeni Panel Oluşturma",
+    "nameHolder": "Yeni Panelin Adını Girin",
+    "typeHolder": "Yeni Panelin Tip Açıklamasını Girin",
+    "editPanel": "Paneli Düzenle"
+  },
+  "alerts": {
+    "header": "Uyarılar",
+    "add": "Uyarı ekle",
+    "search": "Arama uyarısı",
+    "name": "İsim",
+    "function": "Uyarı Ayrıntıları",
+    "save": "Kaydet",
+    "sql": "Sorgu",
+    "realTime": "Gerçek Zamanlı",
+    "scheduled": "Planlanmış",
+    "duration": "Uyarının değerlendirildiği süre",
+    "condition": "Koşul",
+    "interval": "Uyarının değerlendirilme sıklığı",
+    "delayNotificationUntil": "Bir bildirimden sonra bildirimi geciktirin",
+    "destination": "Hedef",
+    "stream_name": "Akış Adı",
+    "actions": "Eylemler",
+    "cancel": "İptal",
+    "addTitle": "Uyarı Ekle",
+    "updateTitle": "Güncelleme Uyarısı",
+    "delete": "Sil"
   }
 }

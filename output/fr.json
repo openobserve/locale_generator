@@ -186,7 +186,7 @@
   },
   "jstransform": {
     "header": "Fonctions",
-    "add": "Ajouter une fonction",
+    "add": "Créer une nouvelle fonction",
     "search": "Fonction de recherche",
     "name": "Nom",
     "function": "Détail de la fonction",
@@ -199,7 +199,9 @@
     "cancel": "Annuler",
     "addTitle": "Ajouter une fonction",
     "updateTitle": "Fonction de mise à jour",
-    "delete": "Supprimer"
+    "delete": "Supprimer",
+    "ok": "D'accord",
+    "type": "Type de fonction"
   },
   "confirmDialog": {
     "cancel": "Annuler",

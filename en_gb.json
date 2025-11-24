@@ -40,7 +40,9 @@
     "function": "Functions",
     "ingestion": "Ingestion",
     "metrics": "Metrics",
-    "slack": "Help"
+    "slack": "Help",
+    "dashboard": "Dashboard",
+    "alerts": "Alerts"
   },
   "about": {
     "name": "Zinc",
@@ -186,7 +188,7 @@
   },
   "jstransform": {
     "header": "Functions",
-    "add": "Add Function",
+    "add": "Create new function",
     "search": "Search Function",
     "name": "Name",
     "function": "Function Detail",
@@ -199,7 +201,9 @@
     "cancel": "Cancel",
     "addTitle": "Add Function",
     "updateTitle": "Update Function",
-    "delete": "Delete"
+    "delete": "Delete",
+    "ok": "Ok",
+    "type": "Function Type"
   },
   "confirmDialog": {
     "cancel": "Cancel",
@@ -208,5 +212,54 @@
   "ingestion": {
     "header": "Ingestion",
     "passwordLabel": "Reset Password"
+  },
+  "dashboard": {
+    "header": "Dashboards",
+    "add": "Add Dashboard",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete Dashboard",
+    "search": "Search Dashboard",
+    "name": "Name of Dashboard",
+    "typeDesc": "Type Description of Dashboard",
+    "createdashboard": "Create a New Dashboard",
+    "nameHolder": "Enter Name of New Dashboard",
+    "typeHolder": "Enter Type Description of New Dashboard"
+  },
+  "panel": {
+    "header": "Panel",
+    "add": "Add Panel",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete Panel",
+    "search": "Search Panel",
+    "name": "Name of Panel",
+    "typeDesc": "Description",
+    "createdashboard": "Create a New Panel",
+    "nameHolder": "Enter Name of New Panel",
+    "typeHolder": "Enter Type Description of New Panel",
+    "editPanel": "Edit Panel"
+  },
+  "alerts": {
+    "header": "Alerts",
+    "add": "Add alert",
+    "search": "Search alert",
+    "name": "Name",
+    "function": "Alert Details",
+    "save": "Save",
+    "sql": "Query",
+    "realTime": "Real Time",
+    "scheduled": "Scheduled",
+    "duration": "Duration for which alert is evaluated",
+    "condition": "Condition",
+    "interval": "Frequency at which alert is evaluated",
+    "delayNotificationUntil": "Delay notification until, after one notification",
+    "destination": "Destination",
+    "stream_name": "Stream Name",
+    "actions": "Actions",
+    "cancel": "Cancel",
+    "addTitle": "Add Alert",
+    "updateTitle": "Update Alert",
+    "delete": "Delete"
   }
 }
