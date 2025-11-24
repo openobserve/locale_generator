@@ -1,0 +1,48 @@
+{
+  "languages": [
+    {
+      "code": "de",
+      "generation_type": "delta"
+    },
+    {
+      "code": "es",
+      "generation_type": "delta"
+    },
+    {
+      "code": "fr",
+      "generation_type": "delta"
+    },
+    {
+      "code": "hi",
+      "generation_type": "delta"
+    },
+    {
+      "code": "it",
+      "generation_type": "delta"
+    },
+    {
+      "code": "ja",
+      "generation_type": "delta"
+    },
+    {
+      "code": "ko",
+      "generation_type": "delta"
+    },
+    {
+      "code": "nl",
+      "generation_type": "delta"
+    },
+    {
+      "code": "pt",
+      "generation_type": "delta"
+    },
+    {
+      "code": "tr",
+      "generation_type": "delta"
+    },
+    {
+      "code": "zh",
+      "generation_type": "delta"
+    }
+  ]
+}

@@ -1,35 +1,16 @@
+import json
 from translator import CreateTranslationFile
 
 # Get the list of languages at - https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html
 
-CreateTranslationFile("tr")  # Turkish
-CreateTranslationFile("fr")  # French
-CreateTranslationFile("es")  # Spanish
-CreateTranslationFile("hi")  # Hindi
-# CreateTranslationFile("zh")  # Chinese
-# CreateTranslationFile("de")  # German
-# CreateTranslationFile("it")  # Italian
-# CreateTranslationFile("pt")  # Portuguese
-# CreateTranslationFile("ja")  # Japanese
-# CreateTranslationFile("ko")  # Korean
-# CreateTranslationFile("ar")  # Arabic
-# CreateTranslationFile("ru")  # Russian
-# CreateTranslationFile("sv")  # Swedish
-# CreateTranslationFile("da")  # Danish
-# CreateTranslationFile("fi")  # Finnish
-# CreateTranslationFile("no")  # Norwegian
-# CreateTranslationFile("nl")  # Dutch
-# CreateTranslationFile("pl")  # Polish
-# CreateTranslationFile("cs")  # Czech
-# CreateTranslationFile("el")  # Greek
-# CreateTranslationFile("hu")  # Hungarian
-# CreateTranslationFile("ro")  # Romanian
-# CreateTranslationFile("sk")  # Slovak
-# CreateTranslationFile("sl")  # Slovenian
-# CreateTranslationFile("th")  # Thai
-# CreateTranslationFile("vi")  # Vietnamese
-# CreateTranslationFile("bg")  # Bulgarian
-# CreateTranslationFile("et")  # Estonian
-# CreateTranslationFile("lv")  # Latvian
-# CreateTranslationFile("lt")  # Lithuanian
-# CreateTranslationFile("mt")  # Maltese
+# Load configuration from config.json
+with open('config.json') as config_file:
+    config = json.load(config_file)
+
+# Process each language from the config
+for lang_config in config['languages']:
+    locale = lang_config['code']
+    generation_type = lang_config.get('generation_type', 'all')  # Default to 'all' if not specified
+
+    print(f"Processing {locale} with generation_type: {generation_type}")
+    CreateTranslationFile(locale, generation_type)
