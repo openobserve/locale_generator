@@ -1,15 +1,9 @@
 import json
+import boto3
 import os
-from anthropic import Anthropic
-from difflib import SequenceMatcher
+from botocore.exceptions import NoCredentialsError
 
-# Initialize Anthropic client
-client = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY")
-)
-
-# Similarity threshold for reverse translation verification (0.0 to 1.0)
-SIMILARITY_THRESHOLD = 0.7
+translate = boto3.client('translate')
 
 def CreateTranslationFile(locale):
     targetOutput = convertLocaleTo(locale)
@@ -102,84 +96,17 @@ def translate_nested_object(source_obj, existing_obj, locale):
 
 
 def translate_text(text, locale):
-    """
-    Translate text using Claude API with reverse translation verification
-    """
+    # Example: Translate using any external service, handle exceptions if needed
     try:
-        # Map locale codes to language names for better translation
-        language_map = {
-            'es': 'Spanish',
-            'fr': 'French',
-            'de': 'German',
-            'hi': 'Hindi',
-            'zh': 'Chinese',
-            'tr': 'Turkish',
-            'ja': 'Japanese',
-            'ko': 'Korean',
-            'pt': 'Portuguese',
-            'it': 'Italian',
-            'ru': 'Russian',
-            'ar': 'Arabic'
-        }
-        
-        target_language = language_map.get(locale, locale)
-        
-        # Step 1: Translate from English to target language
-        prompt = f"""Translate the following English text to {target_language}. 
-Only return the translated text, nothing else. Do not add quotes or explanations.
-
-Text to translate: {text}"""
-
-        message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=1024,
-            messages=[
-                {"role": "user", "content": prompt}
-            ]
+        translatedText = translate.translate_text(
+            Text=text,
+            SourceLanguageCode='en',
+            TargetLanguageCode=locale
         )
-        
-        translated_text = message.content[0].text.strip()
-        
-        # Step 2: Reverse translate back to English for verification
-        reverse_prompt = f"""Translate the following {target_language} text to English. 
-Only return the translated text, nothing else. Do not add quotes or explanations.
-
-Text to translate: {translated_text}"""
-
-        reverse_message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=1024,
-            messages=[
-                {"role": "user", "content": reverse_prompt}
-            ]
-        )
-        
-        reverse_translated_text = reverse_message.content[0].text.strip()
-        
-        # Step 3: Compare original with reverse translation
-        similarity = calculate_similarity(text.lower(), reverse_translated_text.lower())
-        
-        if similarity >= SIMILARITY_THRESHOLD:
-            # Translation is accurate enough
-            print(f"✓ Translation verified: '{text}' -> '{translated_text}' (similarity: {similarity:.2f})")
-            return translated_text
-        else:
-            # Translation accuracy is low, keep original English text for manual translation
-            print(f"✗ Translation accuracy low: '{text}' -> '{translated_text}' -> '{reverse_translated_text}' (similarity: {similarity:.2f})")
-            print(f"  Keeping original English text for manual translation.")
-            return text
-        
-    except Exception as e:
-        print(f"Translation error: {str(e)}")
+        return translatedText['TranslatedText']
+    except NoCredentialsError:
+        print("No credentials for the translation service.")
         return text  # Fallback to the original text in case of an error
-
-
-def calculate_similarity(text1, text2):
-    """
-    Calculate similarity ratio between two strings using SequenceMatcher
-    Returns a value between 0.0 and 1.0
-    """
-    return SequenceMatcher(None, text1, text2).ratio()
 
 
 def merge_translations(existing_translations, new_translations):
